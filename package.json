@@ -1,0 +1,7 @@
+{
+  "name": "bloomrix-project-task-manager",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Vanilla JavaScript object-oriented project and task management assignment"
+}

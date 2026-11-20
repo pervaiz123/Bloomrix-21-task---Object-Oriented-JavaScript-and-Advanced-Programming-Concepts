@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A project and task manager built with object-oriented Vanilla JavaScript."
+    />
+    <title>Bloomrix | Project Workspace</title>
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <script type="module" src="./src/app.js"></script>
+  </head>
+  <body>
+    <div class="app-layout" id="app">
+      <aside class="sidebar">
+        <a class="brand" href="#" aria-label="Bloomrix home">
+          <span class="brand-mark">B</span>
+          <span>Bloomrix<span class="brand-subtitle">WORKSPACE</span></span>
+        </a>
+
+        <div class="sidebar-section-heading">
+          <span>WORKSPACE</span>
+          <button
+            class="icon-button"
+            type="button"
+            data-action="create-project"
+            aria-label="Create project"
+            title="Create project"
+          >
+            +
+          </button>
+        </div>
+        <nav
+          id="project-list"
+          class="project-navigation"
+          aria-label="Projects"
+        ></nav>
+
+        <div class="sidebar-note">
+          <span class="sidebar-note-icon">◎</span>
+          <div>
+            <strong>Stay on track</strong>
+            <p>Break work into clear, manageable tasks.</p>
+          </div>
+        </div>
+
+        <div class="sidebar-footer">
+          <span class="avatar avatar-small">PA</span>
+          <span
+            ><strong>Workspace Admin</strong
+            ><small>Project manager</small></span
+          >
+          <span class="online-dot" aria-label="Online"></span>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">PROJECT MANAGEMENT</p>
+            <h1>Project workspace</h1>
+          </div>
+          <div class="topbar-meta">
+            <span class="date-label" id="today-label"></span>
+            <span class="avatar">PA</span>
+          </div>
+        </header>
+
+        <section class="toolbar" aria-label="Task search and filters">
+          <label class="search-field">
+            <span aria-hidden="true">⌕</span>
+            <input
+              id="search-input"
+              type="search"
+              placeholder="Search tasks by title or description..."
+              autocomplete="off"
+            />
+          </label>
+          <label class="filter-field">
+            <span class="sr-only">Project</span>
+            <select id="filter-project" aria-label="Filter by project">
+              <option value="all">All projects</option>
+            </select>
+          </label>
+          <label class="filter-field">
+            <span class="sr-only">Status</span>
+            <select id="filter-status" aria-label="Filter by status">
+              <option value="all">All statuses</option>
+              <option value="todo">To do</option>
+              <option value="in-progress">In progress</option>
+              <option value="review">In review</option>
+              <option value="done">Completed</option>
+            </select>
+          </label>
+          <label class="filter-field">
+            <span class="sr-only">Priority</span>
+            <select id="filter-priority" aria-label="Filter by priority">
+              <option value="all">All priorities</option>
+              <option value="urgent">Urgent</option>
+              <option value="high">High</option>
+              <option value="medium">Medium</option>
+              <option value="low">Low</option>
+            </select>
+          </label>
+          <label class="filter-field">
+            <span class="sr-only">Assigned user</span>
+            <select id="filter-user" aria-label="Filter by assigned user">
+              <option value="all">All members</option>
+            </select>
+          </label>
+          <label class="filter-field sort-field">
+            <span class="sr-only">Sort tasks</span>
+            <select id="sort-tasks" aria-label="Sort tasks">
+              <option value="dueDate">Sort: Due date</option>
+              <option value="priority">Sort: Priority</option>
+              <option value="title">Sort: Title</option>
+            </select>
+          </label>
+        </section>
+
+        <section
+          class="summary-grid"
+          id="summary-grid"
+          aria-label="Project summary"
+        ></section>
+
+        <section class="workspace-grid">
+          <section class="task-panel panel">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">YOUR WORK</p>
+                <h2 id="task-list-heading">All tasks</h2>
+                <p class="muted" id="task-count-label">Loading tasks...</p>
+              </div>
+              <button
+                class="primary-button"
+                type="button"
+                data-action="create-task"
+              >
+                <span>+</span> New task
+              </button>
+            </div>
+            <div class="task-list" id="task-list" aria-live="polite"></div>
+          </section>
+
+          <aside
+            class="details-panel panel"
+            aria-label="Task details"
+            id="task-details"
+          ></aside>
+        </section>
+
+        <footer class="page-footer">
+          <span>Bloomrix Workspace</span>
+          <span
+            >Built with Vanilla JavaScript and object-oriented programming</span
+          >
+        </footer>
+      </main>
+    </div>
+
+    <div id="modal-root"></div>
+    <div
+      id="toast-region"
+      class="toast-region"
+      aria-live="polite"
+      aria-atomic="true"
+    ></div>
+  </body>
+</html>
