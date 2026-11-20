@@ -1,5 +1,4 @@
 "use strict";
-
 console.clear();
 await import("./01-constructors-and-prototypes.js");
 await import("./02-classes-inheritance-encapsulation.js");
