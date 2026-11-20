@@ -49,7 +49,6 @@ const taskSubject = new SimpleSubject();
 taskSubject.subscribe((value) => console.log("Observer received:", value));
 taskSubject.notify("Task status changed");
 
-// Strategy: select one interchangeable algorithm at runtime.
 const sortingStrategies = {
   ascending: (items) => [...items].sort((a, b) => a.localeCompare(b)),
   descending: (items) => [...items].sort((a, b) => b.localeCompare(a)),
